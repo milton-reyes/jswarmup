@@ -5,6 +5,7 @@ SELECT * FROM study_set ss
 SELECT * FROM study_set_card ssc 
 SELECT * FROM user_role ur 
 
+--Write a query that will find all user info related to users with a role of BASIC_USER
 SELECT 
 	au.username 
 	,au."password" 
@@ -23,9 +24,11 @@ LEFT JOIN flashcard ON study_set_card.flashcard_id = flashcard.flashcard_id
 LEFT JOIN category ON flashcard.flashcard_id = category.category_id 
 WHERE user_role."name" = 'BASIC_USER'
 
+--Write a statement that will insert a new user into the APP_USER table with a role of PREMIUM_USER
 INSERT INTO app_user (username, PASSWORD, first_name, last_name ,role_id )
 VALUES ('skynetbot','theEndIsNear666','raddix','king',4)
 
+--Write a query that will find all user and study set info related to the user with an id of 4
 SELECT 
 	au.username 
 	,au."password" 
@@ -44,6 +47,9 @@ LEFT JOIN flashcard ON study_set_card.flashcard_id = flashcard.flashcard_id
 LEFT JOIN category ON flashcard.flashcard_id = category.category_id 
 WHERE au.user_id = 4
 
+--Write a query that will obtain the owner’s username and role name, as well 
+--as the category name, questions, and answers of flashcard contained within 
+--the study set with an id of 1
 SELECT 
 	au.username 
 	,ur."name" 
