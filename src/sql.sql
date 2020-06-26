@@ -12,16 +12,8 @@ SELECT
 	,au.first_name 
 	,au.last_name 
 	,user_role.name
-	,study_set."name" 
-	,flashcard.answer 
-	,flashcard.question 
-	,category."name" 
 FROM app_user au 
 LEFT JOIN user_role ON au.role_id = user_role.role_id 
-LEFT JOIN  study_set ON au.user_id = study_set.owner_id 
-LEFT JOIN study_set_card ON study_set.study_set_id = study_set_card.study_set_id 
-LEFT JOIN flashcard ON study_set_card.flashcard_id = flashcard.flashcard_id 
-LEFT JOIN category ON flashcard.flashcard_id = category.category_id 
 WHERE user_role."name" = 'BASIC_USER'
 
 --Write a statement that will insert a new user into the APP_USER table with a role of PREMIUM_USER
@@ -34,17 +26,9 @@ SELECT
 	,au."password" 
 	,au.first_name 
 	,au.last_name 
-	,user_role.name
 	,study_set."name" 
-	,flashcard.answer 
-	,flashcard.question 
-	,category."name" 
 FROM app_user au 
-LEFT JOIN user_role ON au.role_id = user_role.role_id 
 LEFT JOIN  study_set ON au.user_id = study_set.owner_id 
-LEFT JOIN study_set_card ON study_set.study_set_id = study_set_card.study_set_id 
-LEFT JOIN flashcard ON study_set_card.flashcard_id = flashcard.flashcard_id 
-LEFT JOIN category ON flashcard.flashcard_id = category.category_id 
 WHERE au.user_id = 4
 
 --Write a query that will obtain the owner’s username and role name, as well 
